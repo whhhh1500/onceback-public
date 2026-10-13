@@ -1,5 +1,7 @@
 # OnceBack
 
+[![CI](https://github.com/whhhh1500/onceback-public/actions/workflows/ci.yml/badge.svg)](https://github.com/whhhh1500/onceback-public/actions/workflows/ci.yml)
+
 **Every refund goes back once: in the right currency, on the right rail, and never alongside a chargeback.**
 
 OnceBack is a refunds agent for cross-border merchants on Airwallex. It reads the customer's message, decides in code what is owed and how to return it, asks a person when the terms call for it, then moves the money through Airwallex:
@@ -23,6 +25,12 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m onceback --mock    # all 7 cases, offline mirror of the sandbox
 .venv/bin/python -m onceback.console   # console at http://127.0.0.1:8000
 ```
+
+Screenshots from the live sandbox run (2026-10-10):
+
+| Prompt injection → bound approval (C4) | Card closed → JPY bank payout (C2) | Chargeback race → no double pay (C3) |
+|---|---|---|
+| ![C4](docs/screens/c4_injection_approval.png) | ![C2](docs/screens/c2_bank_payout_jp.png) | ![C3](docs/screens/c3_chargeback_race.png) |
 
 ## The split of responsibilities
 
