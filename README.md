@@ -14,6 +14,7 @@ OnceBack is a refunds agent for cross-border merchants on Airwallex. It reads th
 
 ## Demo and 60-second check
 
+- **Judges:** start with [JUDGES.md](JUDGES.md) (what to watch, how to run, where each claim lives in the code).
 - **Demo video (4:47, captioned):** [docs/OnceBack_demo.mp4](docs/OnceBack_demo.mp4). All seven cases run against the real Airwallex sandbox in the operator console.
 - **Live sandbox transcripts:** [docs/LIVE_RUN.md](docs/LIVE_RUN.md)
 - **Try it offline. No credentials needed:**
