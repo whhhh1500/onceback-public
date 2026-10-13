@@ -1,0 +1,7 @@
+requests>=2.31
+pytest>=8
+pillow
+playwright  # live mode only: test shopper
+fastapi
+uvicorn
+httpx  # tests (FastAPI TestClient)

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><title>OnceBack test shopper</title>
+<script src="https://static.airwallex.com/components/sdk/v1/index.js"></script></head>
+<body>
+<div id="card" style="width:420px;height:60px"></div>
+<button id="submit" type="button">Pay</button>
+<pre id="out"></pre>
+<script>
+const q = new URLSearchParams(location.hash.slice(1));
+const intent_id = q.get('intent_id'), client_secret = q.get('client_secret'), currency = q.get('currency');
+window.__state = 'loading';
+(async () => {
+  try {
+    await window.AirwallexComponentsSDK.init({ env: 'demo', enabledElements: ['payments'] });
+    const card = await window.AirwallexComponentsSDK.createElement('card', { intent_id, client_secret, currency });
+    card.mount('card');
+    card.on('ready', () => { window.__state = 'ready'; });
+    document.getElementById('submit').addEventListener('click', () => {
+      window.__state = 'confirming';
+      card.confirm({ intent_id, client_secret })
+        .then(r => { window.__result = r; window.__state = 'done'; document.getElementById('out').textContent = JSON.stringify(r); })
+        .catch(e => { window.__result = {error: e && (e.message || e.code || String(e)), raw: e}; window.__state = 'error'; });
+    });
+  } catch (e) { window.__state = 'error'; window.__result = {error: String(e)}; }
+})();
+</script></body></html>

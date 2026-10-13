@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnceBack · Refund operations</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h8.5a4.5 4.5 0 0 1 0 9H6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M9.5 4 6.5 7l3 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="word">OnceBack</span>
+    <span class="sub">Refund operations</span>
+  </div>
+  <div class="env" id="env"></div>
+  <div class="balances" id="balances"></div>
+  <div class="setup" id="setup"></div>
+</header>
+
+<main class="grid">
+  <section class="col inbox">
+    <div class="col-head"><h2>Requests</h2><span class="count" id="inbox-count"></span></div>
+    <div id="inbox" class="list"></div>
+  </section>
+
+  <section class="col case" id="case">
+    <div class="empty">
+      <p class="empty-title">No case selected</p>
+      <p>Prepare the demo orders, then open a request on the left and let the agent work it.</p>
+    </div>
+  </section>
+
+  <aside class="col side">
+    <div class="panel">
+      <div class="col-head"><h2>Waiting for you</h2><span class="count" id="appr-count"></span></div>
+      <div id="approvals"></div>
+    </div>
+    <div class="panel">
+      <div class="col-head"><h2>Money returned per payment</h2></div>
+      <div id="ledger"></div>
+    </div>
+    <div class="panel grow">
+      <div class="col-head"><h2>Events</h2><span class="hint" id="wh-hint"></span></div>
+      <div id="activity" class="activity"></div>
+    </div>
+  </aside>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
