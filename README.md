@@ -10,6 +10,20 @@ OnceBack is a refunds agent for cross-border merchants on Airwallex. It reads th
   - If a chargeback appears before the refund goes out, OnceBack **accepts the dispute and cancels the refund**. Refunding as well would pay the customer twice.
   - If a chargeback lands after the refund went out, OnceBack **challenges it with credit-processed evidence**.
 
+## Demo and 60-second check
+
+- **Demo video (4:47, captioned):** [docs/OnceBack_demo.mp4](docs/OnceBack_demo.mp4). All seven cases run against the real Airwallex sandbox in the operator console.
+- **Live sandbox transcripts:** [docs/LIVE_RUN.md](docs/LIVE_RUN.md)
+- **Try it offline. No credentials needed:**
+
+```sh
+git clone https://github.com/whhhh1500/onceback-public.git && cd onceback-public
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python -m pytest -q          # 58 passed
+.venv/bin/python -m onceback --mock    # all 7 cases, offline mirror of the sandbox
+.venv/bin/python -m onceback.console   # console at http://127.0.0.1:8000
+```
+
 ## The split of responsibilities
 
 | | Who does it |
